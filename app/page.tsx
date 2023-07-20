@@ -1,9 +1,9 @@
 "use client"
 
-import Image from 'next/image'
 import Navbar from './components/navbar/Navbar'
 import React, { useState } from 'react'
 import Offer from './components/navbar/Offer'
+import Carousel from './components/Carousel'
 
 export default function Home() {
   const [show, setShow] = useState(true)
@@ -16,6 +16,7 @@ export default function Home() {
         show && <Offer handleOffer={handleShow}/>
       }
       <Navbar />
+      <Carousel />
     </div>
   )
 }
