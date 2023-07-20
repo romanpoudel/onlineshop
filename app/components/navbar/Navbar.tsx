@@ -10,7 +10,7 @@ import { Badge } from "@mui/material";
 
 
 const Navbar = () => {
-    return <div className="h-16 sticky top-0 flex items-center justify-between mx-2 sm:mx-8">
+    return <div className="h-16 sticky top-0 flex items-center justify-between px-2 sm:px-8 z-20 bg-gray-50 bg-opacity-95">
         <div className="hidden sm:block">
             <h2 className=" font-logo text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">OnlineStore</h2>
         </div>
