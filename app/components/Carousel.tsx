@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 
 const Carousel = () => {
@@ -36,6 +36,11 @@ const Carousel = () => {
         setCurrentIndex(newIndex);
     }
 
+    useEffect(()=>{
+        setTimeout(()=>{
+            nextSlide()
+        },4000)
+    })
     return (
         <div className='max-w-[1400px] h-[280px] w-full m-auto  px-4 relative group'>
             <div style={{ backgroundImage: `url(${slides[currentIndex].url})` }} className='w-full h-full rounded-xl bg-center bg-cover duration-500'>

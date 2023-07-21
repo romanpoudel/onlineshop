@@ -1,6 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter,Roboto } from 'next/font/google'
+import { Inter, Roboto } from 'next/font/google'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { ReactQueryProvider } from './ReactQueryProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 const roboto = Roboto({
@@ -19,8 +21,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ReactQueryProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          {children}
+          <ReactQueryDevtools initialIsOpen={false} />
+        </body>
+      </html>
+    </ReactQueryProvider>
   )
 }

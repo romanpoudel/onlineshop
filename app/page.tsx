@@ -4,6 +4,8 @@ import Navbar from './components/navbar/Navbar'
 import React, { useState } from 'react'
 import Offer from './components/navbar/Offer'
 import Carousel from './components/Carousel'
+import Products from './components/products/Products'
+import Footer from './components/Footer'
 
 export default function Home() {
   const [show, setShow] = useState(true)
@@ -17,6 +19,8 @@ export default function Home() {
       }
       <Navbar />
       <Carousel />
+      <Products />
+      <Footer />
     </div>
   )
 }
