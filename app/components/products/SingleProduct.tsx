@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from "next/image"
-import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 import Star from './Star';
 import Link from 'next/link';
 

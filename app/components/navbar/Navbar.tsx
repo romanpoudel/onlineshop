@@ -2,12 +2,8 @@ import React from "react";
 import { FiShoppingCart } from "react-icons/fi"
 import { HiOutlineUser } from "react-icons/hi"
 import { FiSearch } from "react-icons/fi"
-import { Roboto, Rubik } from 'next/font/google'
 import { Badge } from "@mui/material";
 import Link from "next/link";
-
-
-
 
 
 const Navbar = () => {

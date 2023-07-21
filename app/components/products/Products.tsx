@@ -1,6 +1,7 @@
 import React from 'react'
 import SingleProduct from './SingleProduct'
 import { useQuery } from '@tanstack/react-query'
+import CardLoading from '../CardLoading';
 
 interface CartProduct {
     id: number;
@@ -25,7 +26,7 @@ const Products = () => {
         return (<p>Error fetching data</p>)
     }
     if (status === "loading") {
-        return (<p>Fetching data...</p>)
+        return (<div className='max-w-[1400px]  mx-auto px-4 my-4 w-full'><CardLoading /></div>)
     }
     return (
         <div className='max-w-[1400px]  mx-auto px-4 my-4 w-full'>
