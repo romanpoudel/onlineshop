@@ -4,6 +4,7 @@ import { HiOutlineUser } from "react-icons/hi"
 import { FiSearch } from "react-icons/fi"
 import { Roboto, Rubik } from 'next/font/google'
 import { Badge } from "@mui/material";
+import Link from "next/link";
 
 
 
@@ -12,7 +13,7 @@ import { Badge } from "@mui/material";
 const Navbar = () => {
     return <div className="h-16 sticky top-0 flex items-center justify-between px-2 sm:px-8 z-20 bg-gray-50 bg-opacity-95">
         <div className="hidden sm:block">
-            <h2 className=" font-logo text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">OnlineStore</h2>
+            <Link href="/"> <h2 className=" font-logo text-2xl font-extrabold text-transparent bg-clip-text  bg-gradient-to-r from-green-400 via-yellow-400 to-pink-400">OnlineStore</h2> </Link>
         </div>
 
         <div className="relative flex items-center text-gray-400 focus-within:text-gray-600">
@@ -20,7 +21,7 @@ const Navbar = () => {
             <FiSearch size={20} color="gray" className="absolute  pointer-events-none font-semibold ml-2" />
         </div>
         <div className="flex  justify-between">
-            <Badge badgeContent={4} color="primary">
+            <Badge badgeContent={4} color="success">
                 <FiShoppingCart size={22} />
             </Badge>
             <HiOutlineUser size={22} className="ml-10" />

@@ -19,11 +19,11 @@ function Star({ rating }: RateProps) {
             <span key={index}>
                 {
                     rate >= index + 1 ? (
-                        <BsStarFill color='green' />
+                        <BsStarFill color='green' style={{ marginRight: '1px' }} />
                     ) : rate >= number ? (
-                        <BsStarHalf color='green' />
+                        <BsStarHalf color='green' style={{ marginRight: '1px' }} />
                     ) : (
-                        <BsStar color='green' />
+                        <BsStar color='green' style={{ marginRight: '1px' }} />
                     )
                 }
             </span>
@@ -31,7 +31,7 @@ function Star({ rating }: RateProps) {
     }
     )
     return (
-        <div className="mt-4 flex items-center">
+        <div className="flex items-center">
             {ratingStar}
             <p className="ml-2 text-gray-600">({count})</p>
         </div>

@@ -20,12 +20,12 @@ const SingleProduct = ({ id, image, title, description, price, rating }: Product
     return (
         <Link href={`/productDetail/${id}`}>
             <div className='flex flex-col items-center w-full'>
-                <div className='flex items-center justify-center bg-gray-200 rounded-lg w-full aspect-square hover:shadow-md'>
+                <div className='flex items-center justify-center bg-gray-100 rounded-lg w-full aspect-square hover:shadow-lg'>
                     <Image src={image} alt="product-image" className='w-44 h-56  object-contain' width={176} height={224} priority />
                 </div>
                 <div className='flex w-full'>
                     <div className='w-3/4'>
-                        <div className='font-bold sm:text-lg'>Gaming Headphone</div>
+                        <div className='font-bold sm:text-lg line-clamp-2 h-12 sm:h-14'>{title}</div>
                         <div className='line-clamp-1 text-sm font-medium text-gray-600'>{description}</div>
                         <div className='line-clamp-1 text-sm font-medium text-gray-600'><Star rating={rating} /></div>
                         <div className='my-2'>
