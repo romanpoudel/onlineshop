@@ -33,7 +33,7 @@ function Star({ rating }: RateProps) {
     return (
         <div className="flex items-center">
             {ratingStar}
-            <p className="ml-2 text-gray-600">({count})</p>
+            <p className="ml-2 text-gray-600 font-semibold">({count})</p>
         </div>
     )
 }
