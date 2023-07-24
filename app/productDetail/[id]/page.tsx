@@ -54,7 +54,7 @@ const page = ({ params }: SingleProductProps) => {
                 <div className='text-gray-400 text-sm mb-4'><Link href="/"><span className='text-gray-500 font-medium'>BrowseProducts</span></Link> &gt; {category}</div>
                 <Suspense>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-                        <div className='w-full h-[250px] md:h-[450px] relative bg-gray-100'>
+                        <div className='w-full h-[250px] md:h-[450px] relative bg-white rounded-md'>
                             <Image src={image} alt="image" layout='fill' objectFit='contain' />
                         </div>
                         <div className='w-full '>

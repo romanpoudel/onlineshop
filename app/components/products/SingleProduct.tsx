@@ -32,7 +32,7 @@ const SingleProduct = (props: Products) => {
     return (
         <Link href={`/productDetail/${id}`}>
             <div className='flex flex-col items-center w-full'>
-                <div className='flex items-center justify-center bg-gray-100 rounded-lg w-full aspect-square hover:shadow-lg'>
+                <div className='flex items-center justify-center bg-white rounded-lg w-full aspect-square hover:shadow-lg'>
                     <Image src={image} alt="product-image" className='w-44 h-56  object-contain' width={176} height={224} priority />
                 </div>
                 <div className='flex w-full'>
