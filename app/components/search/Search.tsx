@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useRef, useState } from 'react'
 import { FiSearch } from "react-icons/fi"
 import { useQuery } from '@tanstack/react-query'
@@ -50,13 +52,14 @@ const Search = () => {
         }
     })
     return (
-
         <div className={`sm:block relative `}>
             <div>
-                <div className="relative flex items-center text-gray-400 focus-within:text-gray-600">
-                    <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} onFocus={handleInputFocus} className="outline-none bg-gray-200 rounded-md ring-1 ring-gray-300 focus:ring-gray-500  placeholder-gray-500 pl-10  py-1 " />
-                    <FiSearch size={20} color="gray" className="absolute  pointer-events-none font-semibold ml-2" />
-                </div>
+                <form onSubmit={(e) => e.preventDefault()}>
+                    <div className="relative flex items-center text-gray-400 focus-within:text-gray-600">
+                        <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} onFocus={handleInputFocus} className="outline-none bg-gray-200 rounded-md ring-1 ring-gray-600 focus:ring-gray-500  placeholder-gray-500 pl-10  py-1 " />
+                        <FiSearch size={20} color="gray" className="absolute  pointer-events-none font-semibold ml-2" />
+                    </div>
+                </form>
             </div>
             {
                 showList && !isLoading && search !== "" && <div className='absolute w-[280px] sm:w-[500px] mt-1 left-0 sm:left-1/2 sm:-translate-x-1/2 border-2 rounded' ref={myRef}>

@@ -1,6 +1,5 @@
 "use client"
 
-import Navbar from '@/app/components/navbar/Navbar'
 import React, { Suspense, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image';
@@ -9,6 +8,10 @@ import { IoMdAdd, IoMdRemove } from 'react-icons/io'
 import { TbTruckDelivery, TbClipboard } from 'react-icons/tb'
 import Link from 'next/link';
 import Loading from '@/app/components/Loading';
+import Button from '@/app/components/Button';
+import Navbar from '@/app/components/navbar/Navbar';
+// import { useDispatch } from "react-redux"
+// import { addToCartReducer } from '@/app/redux-toolkit/features/cart/cartSlice'
 
 interface SingleProductProps {
     params: {
@@ -18,6 +21,7 @@ interface SingleProductProps {
 
 const page = ({ params }: SingleProductProps) => {
     const { id } = params
+    // const dispatch=useDispatch()
     const [count, setCount] = useState(1)
     const increment = () => {
         setCount((prev) => prev + 1);
@@ -36,6 +40,13 @@ const page = ({ params }: SingleProductProps) => {
     }
     console.log("🚀 ~ file: page.tsx:13 ~ SingleProduct ~ data:", data)
     const { id: alias, image, title, rating, price, description, category } = data;
+
+    // const handleAddToCart = () => {
+
+    //     const action = addToCartReducer(); // Create an action object
+
+    //     dispatch(action); // Dispatch the action
+    // };
     return (
         <div>
             <Navbar />
@@ -74,7 +85,8 @@ const page = ({ params }: SingleProductProps) => {
                                         <button type='submit' className='font-semibold text-sm ring-1 ring-gray-500 px-4 py-2 rounded-full bg-green-700 text-gray-50  hover:bg-green-900 w-36'>Buy Now</button>
                                     </div>
                                     <div>
-                                        <button type='submit' className='font-semibold text-sm ring-1 ring-green-700 px-4 py-2 rounded-full  text-green-700 hover:bg-gray-100 w-36'>Add to Cart</button>
+                                        {/* <button type='submit' onClick={handleAddToCart} className='font-semibold text-sm ring-1 ring-green-700 px-4 py-2 rounded-full  text-green-700 hover:bg-gray-100 w-36'>Add to Cart</button> */}
+                                        <Button ring="ring-green-700" hvrbg="hover:bg-gray-100" text="text-green-700" hvrtext="hover:text-green-700" width="w-36" data={data} count={count}/>
                                     </div>
                                 </div>
                                 <div className='border rounded w-fit'>
