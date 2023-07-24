@@ -48,7 +48,7 @@ const page = ({ params }: SingleProductProps) => {
     //     dispatch(action); // Dispatch the action
     // };
     return (
-        <div>
+        <div className='bg-gray-50'>
             <Navbar />
             <div className='m-10'>
                 <div className='text-gray-400 text-sm mb-4'><Link href="/"><span className='text-gray-500 font-medium'>BrowseProducts</span></Link> &gt; {category}</div>
