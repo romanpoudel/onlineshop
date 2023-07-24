@@ -24,18 +24,18 @@ const page = () => {
         dispatch(removeFromCart(id))
     }
     return (
-        <div className='bg-gray-50 h-screen'>
+        <div className='bg-gray-50 h-screen '>
             <Navbar />
-            <div>
-                <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 550 }} aria-label="simple table">
+            <div className='max-w-[1400px] mx-auto'>
+                <TableContainer sx={{ maxHeight: 550 }}  component={Paper}>
+                    <Table stickyHeader sx={{ minWidth: 600 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
                                 <TableCell align="center">Image</TableCell>
                                 <TableCell align="left">Title</TableCell>
                                 <TableCell align="center">Count</TableCell>
                                 <TableCell align="right">Price</TableCell>
-                                <TableCell align="right">Remove</TableCell>
+                                <TableCell align="center">Remove</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -46,11 +46,11 @@ const page = () => {
                                     key={row.id}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
-                                    <TableCell style={{display:"flex",alignItems:"center",justifyContent:"center"}}><Image src={row.image} alt="image" width={20} height={20}/></TableCell>
+                                    <TableCell ><Image src={row.image} alt="image" width={20} height={20} style={{ margin: "auto" }} /></TableCell>
                                     <TableCell align="left" >{row.title}</TableCell>
                                     <TableCell align="center">{row.count}</TableCell>
                                     <TableCell align="right">{row.price}</TableCell>
-                                    <TableCell style={{ display: "flex", alignItems: "center", justifyContent: "end",cursor:"pointer" }} onClick={()=>handleRemove(row.id)}><MdRemoveCircleOutline size={20}/></TableCell>
+                                    <TableCell style={{ cursor: "pointer" }} onClick={() => handleRemove(row.id)}><MdRemoveCircleOutline size={20} style={{ margin:"auto"}}/></TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
