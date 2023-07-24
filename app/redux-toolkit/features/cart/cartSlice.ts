@@ -2,20 +2,51 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
-const cartItems = localStorage.getItem("cartItems");
-const items = cartItems !== null ? JSON.parse(cartItems) : [];
+const isLocalStorageAvailable = () => typeof window !== "undefined";
+// const cartItems = localStorage.getItem("cartItems");
+// const items = cartItems !== null ? JSON.parse(cartItems) : [];
 
-const cartCount = localStorage.getItem("cartCount");
-const count = cartCount !== null ? JSON.parse(cartCount) : 0;
+// const cartCount = localStorage.getItem("cartCount");
+// const count = cartCount !== null ? JSON.parse(cartCount) : 0;
 
-const setItemFunc = (cartProducts: any, itemsNumber: any) => {
-  localStorage.setItem("cartItems", JSON.stringify(cartProducts));
-  localStorage.setItem("cartCount", JSON.stringify(itemsNumber));
+// const setItemFunc = (cartProducts: any, itemsNumber: any) => {
+//   localStorage.setItem("cartItems", JSON.stringify(cartProducts));
+//   localStorage.setItem("cartCount", JSON.stringify(itemsNumber));
+// };
+// Helper function to get initial cart items from localStorage or set default value
+const getInitialCartItems = () => {
+  if (isLocalStorageAvailable()) {
+    const cartItems = localStorage.getItem("cartItems");
+    return cartItems !== null ? JSON.parse(cartItems) : [];
+  }
+  return [];
 };
-const initialState: any = {
-  cartProducts: items,
-  itemsNumber: count,
+
+// Helper function to get initial cart count from localStorage or set default value
+const getInitialCartCount = () => {
+  if (isLocalStorageAvailable()) {
+    const cartCount = localStorage.getItem("cartCount");
+    return cartCount !== null ? JSON.parse(cartCount) : 0;
+  }
+  return 0;
 };
+
+// Helper function to update cart data in localStorage
+const setCartData = (cartProducts:any, itemsNumber:any) => {
+  if (isLocalStorageAvailable()) {
+    localStorage.setItem("cartItems", JSON.stringify(cartProducts));
+    localStorage.setItem("cartCount", JSON.stringify(itemsNumber));
+  }
+
+};
+  const initialState = {
+    cartProducts: getInitialCartItems(),
+    itemsNumber: getInitialCartCount(),
+  };
+// const initialState: any = {
+//   cartProducts: items,
+//   itemsNumber: count,
+// };
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -32,7 +63,7 @@ export const cartSlice = createSlice({
       if (!isItemInCart) {
         state.cartProducts = [...state.cartProducts, newItem];
         state.itemsNumber = state.itemsNumber + 1;
-        setItemFunc(state.cartProducts, state.itemsNumber);
+        setCartData(state.cartProducts, state.itemsNumber);
       }
     },
     removeFromCart: (state, action) => {
@@ -40,7 +71,7 @@ export const cartSlice = createSlice({
         (elem: { id: any }) => elem.id !== action.payload
       );
       state.itemsNumber = state.itemsNumber - 1;
-      setItemFunc(state.cartProducts, state.itemsNumber);
+      setCartData(state.cartProducts, state.itemsNumber);
     },
   },
 });
